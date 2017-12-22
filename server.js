@@ -8,6 +8,6 @@ app.get('*', (req,resp)=>{
 });
 
 app.listen(PORT,() =>{
-    console.log('server running at locahost:',PORT);
+    console.log('server running at localhost:',PORT);
 });
 
