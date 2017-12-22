@@ -1,9 +1,11 @@
 const express = require('express');
 const cors= require('cors');
 const PORT = process.env.PORT || 9000;
+const path= require('path');
 
 const app= express();
 app.use(cors());
+app.use(express.static(path.resolve(__dirname, 'client', 'dist')));
 
 app.get('/api/get-stuff', (req,resp)=>{
     const stuff= {
@@ -23,7 +25,7 @@ app.get('/api/better-stuff', (req,resp)=>{
 
 
 app.get('*', (req,resp)=>{
-    resp.send('<h1>Awesome App Working!</h1>');
+    resp.send(path.resolve(__dirname, 'client', 'dist', 'index/html'));
 });
 
 app.listen(PORT,() =>{
